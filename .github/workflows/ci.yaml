@@ -49,11 +49,10 @@ jobs:
               git clone https://github.com/muhammadRashwan1101/DevOps-Hackathon.git
             fi
             cd DevOps-Hackathon
-            git pull origin main
+            git pull origin master
             kubectl apply -f kubernetes/configmap.yaml
             kubectl apply -f kubernetes/secret.yaml
-            kubectl apply -f kubernetes/deployment.yaml
             kubectl apply -f kubernetes/service.yaml
             kubectl get deployments
-            kubectl set image deployment/app-deployment app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }}
-            kubectl rollout status deployment/app-deployment --timeout=90s
+            kubectl set image deployment/backbenchers-deployment app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }}
+            kubectl rollout status deployment/backbenchers-deployment --timeout=90s
