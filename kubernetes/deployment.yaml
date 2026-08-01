@@ -1,31 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BackBenchers-deployment
-  namespace: BackBenchers
+  name: backbenchers-deployment
   labels:
-    app: BackBenchers
+    app: backbenchers
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: BackBenchers
+      app: backbenchers
   template:
     metadata:
       labels:
-        app: BackBenchers
+        app: backbenchers
     spec:
       containers:
-        - name: BackBenchers-app
-          image: BackBenchers-app:latest
+        - name: backbenchers-app
+          image: backbenchers-app:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: BackBenchers-config
+                name: backbenchers-config
             - secretRef:
-                name: BackBenchers-secret
+                name: backbenchers-secret
           readinessProbe:
             httpGet:
               path: /health
