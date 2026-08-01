@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: BackBenchers-config
+  namespace: BackBenchers
+data:
+  APP_NAME: "BackBenchers"
