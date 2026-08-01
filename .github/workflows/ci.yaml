@@ -45,6 +45,9 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             set -e
+            if [ ! -d "DevOps-Hackathon" ]; then
+              git clone https://github.com/muhammadRashwan1101/DevOps-Hackathon.git
+            fi
             cd DevOps-Hackathon
             git pull origin main
             kubectl apply -f kubernetes/configmap.yaml
