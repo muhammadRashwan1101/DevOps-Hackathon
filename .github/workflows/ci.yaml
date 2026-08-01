@@ -34,8 +34,8 @@ jobs:
 
       - name: Push image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/BackBenchers-app:${{ github.sha }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/BackBenchers-app:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:latest
 
       - name: Deploy to Minikube via SSH
         uses: appleboy/ssh-action@v1.0.3
