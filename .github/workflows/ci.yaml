@@ -44,5 +44,5 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            kubectl set image deployment/app-deployment app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }} -n cloudpipe
+            kubectl set image deployment/app-deployment app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }} -n backbenchers
             kubectl rollout status deployment/app-deployment -n backbenchers --timeout=90s
