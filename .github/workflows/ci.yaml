@@ -54,5 +54,5 @@ jobs:
             kubectl apply -f kubernetes/secret.yaml
             kubectl apply -f kubernetes/service.yaml
             kubectl get deployments
-            kubectl set image deployment/backbenchers-deployment app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }}
+            kubectl set image deployment/backbenchers-deployment backbenchers-app=${{ secrets.DOCKERHUB_USERNAME }}/backbenchers-app:${{ github.sha }}
             kubectl rollout status deployment/backbenchers-deployment --timeout=90s
