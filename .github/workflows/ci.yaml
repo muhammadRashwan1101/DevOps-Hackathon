@@ -49,7 +49,7 @@ jobs:
               git clone https://github.com/muhammadRashwan1101/DevOps-Hackathon.git
             fi
             cd DevOps-Hackathon
-            git pull origin main
+            git pull origin master
             kubectl apply -f kubernetes/configmap.yaml
             kubectl apply -f kubernetes/secret.yaml
             kubectl apply -f kubernetes/deployment.yaml
